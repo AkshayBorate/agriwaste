@@ -66,7 +66,7 @@ export default function EmployeeRegister() {
             email: email,
             mobileno: mobile,
             joiningdate: date,
-            salary: salary,  // Include salary in the data
+            salary: salary,  
         };
 
         

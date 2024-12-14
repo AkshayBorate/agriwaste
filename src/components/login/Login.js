@@ -1,32 +1,74 @@
 import React, { useRef, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./Login.css";
 
 export default function LoginPage() {
-    const [isSigninActive, setIsSigninActive] = useState(true);
-   
-  
-    function f1(){
-      
+    const [errorMessage, setErrorMessage] = useState("");
+    const usernameRef = useRef();
+    const passwordRef = useRef();
+    const navigate = useNavigate();
+
+    const handleSignIn = () => {
+        const username = usernameRef.current.value.trim();
+        const password = passwordRef.current.value.trim();
+
         
-    }
-    
+        if (!username || !password) {
+            setErrorMessage("Please fill out both fields!");
+            return;
+        }
+
+       
+        fetch("http://localhost:8084/getall", {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+            },
+        })
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error("Failed to fetch user data.");
+                }
+                return response.json();
+            })
+            .then((users) => {
+                
+                const user = users.find(
+                    (u) => u.email === username && u.password === password
+                );
+                if (user) {
+                    alert("Login successful!");
+                    // navigate("/dashboard");
+                } else {
+                    setErrorMessage("Invalid username or password.");
+                }
+            })
+            .catch((error) => {
+                console.error(error);
+                setErrorMessage("An error occurred while signing in.");
+            });
+    };
 
     return (
         <div className="unique-login-page">
             <div className="unique-login-container">
                 <div className="unique-form-container">
-                <Link to="/loginc" className="signup-link">Back</Link>
+                    <Link to="/loginc" className="signup-link">Back</Link>
                     <h2 className="unique-form-title">Sign In</h2>
-                    <form className="unique-form unique-signin-form">
+                    <form
+                        className="unique-form unique-signin-form"
+                        onSubmit={(e) => e.preventDefault()}
+                    >
+                        {errorMessage && <p className="error-message">{errorMessage}</p>}
                         <div className="unique-form-group">
-                            <label htmlFor="username">Username</label>
+                            <label htmlFor="username">Username (Email)</label>
                             <input
                                 className="unique-form-input"
                                 type="text"
                                 name="username"
                                 placeholder="Enter your username"
-                               
+                                ref={usernameRef}
+                                required
                             />
                         </div>
                         <div className="unique-form-group">
@@ -36,8 +78,8 @@ export default function LoginPage() {
                                 type="password"
                                 name="password"
                                 placeholder="Enter your password"
-                                
-                               
+                                ref={passwordRef}
+                                required
                             />
                         </div>
                         <div className="unique-form-options">
@@ -46,10 +88,18 @@ export default function LoginPage() {
                                 Keep me signed in
                             </label>
                         </div>
-                        <button type="button" className="unique-form-submit-button" onClick={f1}>Sign In</button>
+                        <button
+                            type="button"
+                            className="unique-form-submit-button"
+                            onClick={handleSignIn}
+                        >
+                            Sign In
+                        </button>
                     </form>
                     <div className="unique-signup-link">
-                        <p>Don't have an account? <Link to="/signup">Sign Up</Link></p>
+                        <p>
+                            Don't have an account? <Link to="/signup">Sign Up</Link>
+                        </p>
                     </div>
                 </div>
             </div>

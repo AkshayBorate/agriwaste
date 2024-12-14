@@ -24,6 +24,7 @@ import Loginc from "./components/login/Loginc";
 import { Outlet } from "react-router-dom";
 import AllEmpoyee from "./components/admin/AllEmpoyee";
 import Alluser from "./components/admin/Alluser";
+import PaymentPage from "./components/pricing/PaymentPage";
 
 const routing = createBrowserRouter([
   {
@@ -33,6 +34,7 @@ const routing = createBrowserRouter([
       { path: "/", element: <Home /> },
       { path: "about", element: <About /> },
       { path: "pricing", element: <Pricing /> },
+      { path: "payment", element: <PaymentPage /> },
       { path: "journal", element: <Blog /> },
       { path: "contact", element: <Contact /> },
       { path: "logins", element: <Login /> },

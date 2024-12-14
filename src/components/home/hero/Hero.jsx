@@ -1,7 +1,7 @@
 import React from "react";
 import Heading from "../../common/heading/Heading";
-import "./Hero.css";
 import { Link } from "react-router-dom";
+import "./Hero.css";
 
 const Hero = () => {
   return (
@@ -11,10 +11,10 @@ const Hero = () => {
           <div className="row">
             <Heading subtitle="WELCOME TO GrowAgro" title="Best Agri Waste Platform in India" />
             <p>
-              Agri waste includes crop residues and manure, recycled for compost, bioenergy, or reducing pollution..
+              Agri waste includes crop residues and manure, recycled for compost, bioenergy, or reducing pollution.
             </p>
             <div className="button">
-              <Link to="/sellwaste" className="primary-btn">
+              <Link to="/loginc" className="primary-btn">
                 GET STARTED NOW <i className="fa fa-long-arrow-alt-right"></i>
               </Link>
             </div>

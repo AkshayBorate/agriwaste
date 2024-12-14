@@ -21,7 +21,7 @@ export default function Loginc() {
           <h2>Employee</h2>
           <p>Access resources and collaborate on tasks efficiently.</p>
           <button className="login-btn">
-            <Link to="/employeelogin/">Login as Employee</Link>
+            <Link to="/employeelogin">Login as Employee</Link>
           </button>
         </div>
         <div className="login-card customer-card">
