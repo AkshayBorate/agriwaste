@@ -1,0 +1,55 @@
+.processing-status-container {
+    margin: 20px;
+  }
+  
+  .processing-status-container h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .processing-status-container p {
+    font-size: 1.1rem;
+    color: #666;
+  }
+  
+  .processing-status-container .requests-list {
+    margin-top: 20px;
+  }
+  
+  .processing-status-container .request-card {
+    border: 1px solid #ddd;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .processing-status-container .btn {
+    margin-right: 10px;
+  }
+  
+  .processing-status-container .btn-success {
+    background-color: #28a745;
+    border-color: #28a745;
+  }
+  
+  .processing-status-container .btn-danger {
+    background-color: #dc3545;
+    border-color: #dc3545;
+  }
+  
+  .processing-status-container .form-control {
+    margin-top: 10px;
+  }
+  
+  .processing-status-container .modal-content {
+    padding: 15px;
+  }
+  
+  .processing-status-container .modal-header,
+  .processing-status-container .modal-footer {
+    border: none;
+  }
+  
+  .processing-status-container .modal-body {
+    padding: 20px;
+  }
+  

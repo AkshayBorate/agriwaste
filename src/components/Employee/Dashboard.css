@@ -1,0 +1,150 @@
+
+  
+  /* Dashboard Wrapper */
+  .dashboard-wrapper {
+    padding: 40px;
+    max-width: 1200px;
+    margin: 40px auto;
+    background-color: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+  }
+  
+  /* Title Section */
+  .dashboard-header {
+    font-size: 2.6rem;
+    font-weight: bold;
+    color: #4CAF50;
+    text-align: center;
+    margin-bottom: 50px;
+    letter-spacing: 2px;
+  }
+  
+  /* Metric Cards Container */
+  .dashboard-metrics-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+    margin-bottom: 50px;
+  }
+  
+  /* Individual Metric Card */
+  .metric-card {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    height: 250px;
+    text-align: center;
+  }
+  
+  .metric-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+  }
+  
+  .metric-card h2 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 15px;
+  }
+  
+  .metric-card p {
+    font-size: 1.3rem;
+    color: #555;
+    font-weight: 500;
+  }
+  
+  /* Metrics Visualization */
+  .metrics-graph-container {
+    margin-bottom: 40px;
+  }
+  
+  .metrics-graph-container h2 {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  /* Navigation Buttons Container */
+  .dashboard-navigation-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin-top: 50px;
+  }
+  
+  /* Navigation Buttons */
+  .nav-button {
+    background-color: #4CAF50;
+    color: #ffffff;
+    padding: 18px 35px;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    transition: all 0.3s ease;
+    width: 220px;
+  }
+  
+  .nav-button:hover {
+    background-color: #45a049;
+    transform: translateY(-5px);
+  }
+  
+  .nav-button:active {
+    transform: translateY(2px);
+  }
+  
+  /* Responsive Design for Mobile */
+  @media (max-width: 768px) {
+    .dashboard-wrapper {
+      padding: 25px;
+    }
+  
+    .dashboard-header {
+      font-size: 2rem;
+    }
+  
+    .dashboard-metrics-container {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+  
+    .metric-card {
+      min-width: 100%;
+      height: auto;
+    }
+  
+    .dashboard-navigation-container {
+      flex-direction: column;
+      gap: 15px;
+    }
+  
+    .nav-button {
+      width: 100%;
+      padding: 14px 0;
+    }
+  }
+  
+  @media (max-width: 500px) {
+    .dashboard-header {
+      font-size: 1.8rem;
+    }
+  
+    .nav-button {
+      padding: 12px 0;
+      font-size: 1rem;
+    }
+  }
+  

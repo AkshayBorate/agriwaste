@@ -25,6 +25,11 @@ import { Outlet } from "react-router-dom";
 import AllEmpoyee from "./components/admin/AllEmpoyee";
 import Alluser from "./components/admin/Alluser";
 import PaymentPage from "./components/pricing/PaymentPage";
+import EmployeeHeader from "./components/Employee/EmployeeHeader";
+import WasteIntake from "./components/Employee/WasteIntake";
+import ProcessingStatus from "./components/Employee/ProcessingStatus";
+import ProductListing from "./components/Employee/ProductListing";
+import Dashboard from "./components/Employee/Dashboard";
 
 const routing = createBrowserRouter([
   {
@@ -63,6 +68,21 @@ const routing = createBrowserRouter([
       { path: "empcreate", element: <EmployeeRegister /> },
       { path: "allemp", element: <AllEmpoyee /> },
       { path: "alluser", element: <Alluser /> },
+    ],
+  },
+  {
+    path: "/empdash",
+    element: (
+      <>
+        <EmployeeHeader />
+        <Outlet />
+      </>
+    ),
+    children: [
+      { path: "wasteintake", element: <WasteIntake /> },
+      { path: "processingstatus", element: <ProcessingStatus /> },
+      { path: "productlisting", element: <ProductListing/> },
+      { path: "dashboard", element: <Dashboard/> },
     ],
   },
 ]);

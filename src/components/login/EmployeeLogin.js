@@ -1,29 +1,37 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import axios from "axios";
+import { Link, useNavigate } from "react-router-dom";
 import "./Login.css";
 
 export default function EmployeeLogin() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [errorMessage, setErrorMessage] = useState("");
+    const navigate = useNavigate();
 
-    const f1 = async () => {
-        try {
-            const response = await axios.get("http://localhost:9000/getemp");
-            const employee = response.data.find(
-                (emp) => emp.email === email && emp.password === password
-            );
+    const f1 = () => {
+        // Uncomment the following block to enable validation and API call
+        // try {
+        //     const response = await axios.get("http://localhost:9000/getemp");
+        //     const employee = response.data.find(
+        //         (emp) => emp.email === email && emp.password === password
+        //     );
 
-            if (employee) {
-                alert("Login Successful!");
-            } else {
-                setErrorMessage("Invalid email or password.");
-            }
-        } catch (error) {
-            setErrorMessage("Error while logging in. Please try again later.");
-            console.error(error);
-        }
+        //     if (employee) {
+        //         alert("Login Successful!");
+        //         navigate("/empdash"); // Navigate to dashboard
+        //     } else {
+        //         setErrorMessage("Invalid email or password.");
+        //     }
+        // } catch (error) {
+        //     setErrorMessage(
+        //         error.response?.data?.message || "Error while logging in. Please try again later."
+        //     );
+        //     console.error(error);
+        // }
+
+        // Temporarily navigate directly for testing
+        alert("Login Successful!");
+        navigate("/empdash");
     };
 
     return (
@@ -65,9 +73,10 @@ export default function EmployeeLogin() {
                                 Keep me signed in
                             </label>
                         </div>
-                        {errorMessage && (
+                        {/* Commented out error message display */}
+                        {/* {errorMessage && (
                             <p className="error-message">{errorMessage}</p>
-                        )}
+                        )} */}
                         <button
                             type="button"
                             className="unique-form-submit-button"
